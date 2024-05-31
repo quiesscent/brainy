@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% load static %}
+{% block tittle %}{% endblock tittle %}
+
+{% block content %}
+<div class="container">
+    <div class="container">
+        <div class="mb-1 mt-3 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+            <h1 class="mb-3">Welcome to {{ subject.title }}</h1>
+        </div>
+        <p>{{ subject.details }}</p>
+    </div>
+    <h1>Let us begin</h1>
+    <div class="accordion" id="accordionExample">
+
+        {% for lesson in lessons %}
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#{{lesson.id}}" aria-expanded="true" aria-controls="{{lesson.id}}">
+              {{ lesson.title }}
+            </button>
+          </h2>
+          <div id="{{lesson.id}}" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+            <div class="accordion-body bg-white">
+              {{ lesson.content}}
+              <a href="{% url 'test' lesson.id %}" class="btn btn-primary rounded-pill"> Take Test</a>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+</div>
+{% include "includes/footer.html" %}
+{% endblock content %}

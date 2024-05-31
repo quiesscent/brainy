@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block titel %}{% endblock titel %}
+
+{% block content %}
+<!-- Facilities Start -->
+<style>
+    .text-phone{
+        display: none;
+    }
+    @media screen and (max-width: 768px)  {
+        .gone{
+            display: none;
+        }
+        .text-phone{
+            display: block;
+        }
+    }
+</style>
+<div class="bg-light rounded container mt-5">
+    <div class="row g-0">
+        <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
+            <div class="h-100 d-flex flex-column justify-content-center p-4 login-form" style="margin-top: 0px;">
+                <h1 class="mb-3 text-center">Login</h1>
+                <form method="POST" style="padding-top: 0%;">{% csrf_token %}
+                    <div class="row g-3">
+                        <div class="col-12">
+                            <div class="form-floating">
+                                <input type="email" class="form-control border-0" id="email" placeholder="Your Email" name="email" required>
+                                <label for="email">Your Email</label>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-floating">
+                                <input type="password" class="form-control border-0" id="subject" placeholder="Password" name="password" required>
+                                <label for="subject">Password</label>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <button class="btn btn-primary w-100 py-3" type="submit">Log In</button>
+                        </div>
+                        <div class="col-12 text-phone">
+                            <p>Don't have an account? <a href="/register">Join US</a></p>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="col-lg-6 wow fadeIn gone" data-wow-delay="0.5s" style="min-height: 400px;">
+            <div class="position-relative h-100">
+                <h1 class="text-center mt-5">Don't have an account ?</h1>
+                <h1 class="text-center mt-5" style="font-size: 20px;"> Join us today and start your lessons with us.</h1>
+                <div class="col-12 text-center mt-5">
+                    <a href="/register"><button class="btn btn-primary w-50 py-3" id="showSignUpFromButton">Sign Up</button></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% include "includes/footer.html" %}
+{% endblock content %}

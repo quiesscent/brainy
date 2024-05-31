@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}{% endblock title %}
+
+{% block content %}
+<div class="container">
+    <div class="container">
+        <div class="mb-1 mt-3 wow fadeInUp" data-wow-delay="0.1s">
+            <h1 class="mb-3"> Ready to tackle {{ lesson.title }} Test ?</h1>
+        </div>
+    </div>
+    <p>
+
+        {% for test in test %}
+        {{ test.questions | safe }}</p>
+        {% endfor %}
+
+
+    <form action="" method="POST">
+    <div class="mb-3"> {% csrf_token %}
+        <label for="exampleFormControlTextarea1" class="form-label">Enter your response here. </label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="10" required name="answer"></textarea>
+
+        <button class="btn btn-primary rounded-pill py-1 px-4 mt-4" type="submit">Submit</button>
+    </div>
+    </form>
+</div>
+
+
+{% include "includes/footer.html" %}
+{% endblock content %}

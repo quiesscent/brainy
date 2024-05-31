@@ -1,0 +1,234 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+<!-- Carousel Start -->
+<div class="container p-0 mb-5">
+    <div class="header-carousel position-relative">
+        <div class="position-relative">
+            <img class="img-fluid" src="{% static 'img/image4.jpg' %}" alt="" style="height: 70vh;  width: 100vw;">
+            <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background: rgba(0, 0, 0, .2);">
+                <div class="container">
+                    <div class="row justify-content-start">
+                        <div class="col-10 col-lg-8">
+                            <h1 class="display-2 text-white animated slideInDown mb-4">The Best Online Classes For Your Child</h1>
+                            <p class="fs-5 fw-medium text-white mb-4 pb-2">Let your kid dive into our well crafted courses, interactive allowing them perfect their competency skills.</p>
+                            <a href="" class="btn btn-primary rounded-pill py-sm-3 px-sm-5 me-3 animated slideInLeft">Learn More</a>
+                            <a href="" class="btn btn-dark rounded-pill py-sm-3 px-sm-5 animated slideInRight">Our Classes</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Carousel End -->
+
+
+<!-- Facilities Start -->
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+            <h1 class="mb-3">Brainy School Objectives</h1>
+            <p>To foster the young talented children of this generation to be the best innovators of the future by providing soft skills and providing practical approaches to pre-introduced courses in school.</p>
+        </div>
+    </div>
+</div>
+<!-- Facilities End -->
+
+
+<!-- About Start -->
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="row g-5 align-items-center">
+            <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
+                <h1 class="mb-4">Learn More About Our Work And Our Cultural Activities</h1>
+                <p>"Welcome to our world of learning and creativity! At Brainy, we're dedicated to providing a fun and enriching online experience for kids. Our mission is to inspire curiosity, ignite imaginations, and foster a love for learning through engaging educational content and cultural activities.</p>
+                <p class="mb-4">Through a blend of interactive lessons, captivating stories, and hands-on projects, we strive to make learning enjoyable and accessible for children of all ages. Whether it's exploring science, history, art, or world cultures, our platform offers a diverse range of opportunities for young minds to grow and thrive.</p>
+                <p class="mb-4">Join us as we embark on an exciting journey of discovery and exploration. Together, let's create memorable learning experiences that inspire a lifelong passion for knowledge and creativity. Come and be a part of our vibrant community today!"</p>
+                <div class="row g-4 align-items-center">
+                    <div class="col-sm-6">
+                        <a class="btn btn-primary rounded-pill py-3 px-5" href="">Read More</a>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="d-flex align-items-center">
+                            <img class="rounded-circle flex-shrink-0" src="{% static 'img/user.jpg' %}" alt="" style="width: 45px; height: 45px;">
+                            <div class="ms-3">
+                                <h6 class="text-primary mb-1">Ephesians Lewis</h6>
+                                <small>CEO & Founder</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 about-img wow fadeInUp" data-wow-delay="0.5s">
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <img class="img-fluid w-75 rounded-circle bg-light p-3" src="{% static 'img/about-1.jpg' %}" alt="">
+                    </div>
+                    <div class="col-6 text-start" style="margin-top: -150px;">
+                        <img class="img-fluid w-100 rounded-circle bg-light p-3" src="{% static 'img/about-2.jpg' %}" alt="">
+                    </div>
+                    <div class="col-6 text-end" style="margin-top: -150px;">
+                        <img class="img-fluid w-100 rounded-circle bg-light p-3" src="{% static 'img/about-3.jpg' %}" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- About End -->
+
+
+<!-- Classes Start -->
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+            <h1 class="mb-3">School Classes</h1>
+            <p>Eirmod sed ipsum dolor sit rebum labore magna erat. Tempor ut dolore lorem kasd vero ipsum sit eirmod sit. Ipsum diam justo sed rebum vero dolor duo.</p>
+        </div>
+        <div class="row g-4">
+
+            {% for subject  in subjects %}
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="classes-item">
+                    <div class="bg-light w-100 mx-auto p-3">
+                        <img class="img-fluid " src="{{ subject.image.url }}" alt="">
+                    </div>
+                    <div class="bg-light rounded p-4 pt-5 mt-n5">
+                        <a class="d-block text-center h3 mt-3 mb-4" href="{% url 'c_details' subject.id  %}">{{subject.title}}</a>
+                        <div class="row g-1">
+                            <div class="col-6">
+                                <div class="border-top border-3 border-primary pt-2">
+                                    <h6 class="text-primary mb-1">Grade:</h6>
+                                    <small>{{ subject.grade }}</small>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="border-top border-3 border-success pt-2">
+                                    <h6 class="text-success mb-1">Duration:</h6>
+                                    <small>{{ subject.duration }}</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+         </div>
+    </div>
+</div>
+<!-- Classes End -->
+
+
+<!-- Appointment Start -->
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="bg-light rounded">
+            <div class="row g-0">
+                <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
+                    <div class="h-100 d-flex flex-column justify-content-center p-5">
+                        <h1 class="mb-4">Contact Us For More Information</h1>
+                        <form>
+                            <div class="row g-3">
+                                <div class="col-sm-6">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control border-0" id="gname" placeholder="Gurdian Name" name="name">
+                                        <label for="gname">Gurdian Name</label>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-floating">
+                                        <input type="email" class="form-control border-0" id="gmail" placeholder="Gurdian Email" name="email">
+                                        <label for="gmail">Gurdian Email</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-floating">
+                                        <textarea class="form-control border-0" placeholder="Leave a message here" id="message" style="height: 100px" name="message"></textarea>
+                                        <label for="message">Message</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <button class="btn btn-primary w-100 py-3" type="submit">Submit</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s" style="min-height: 400px;">
+                    <div class="position-relative h-100">
+                        <img class="position-absolute w-100 h-100 rounded" src="{% static 'img/appointment.jpg' %}" style="object-fit: cover;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Appointment End -->
+
+
+{% comment %} <!-- Team Start -->
+<style>
+    @media (max-width: 768px){
+        .gone{
+            display: none;
+        }
+    }
+</style>
+<div class="container-xxl py-5 gone">
+    <div class="container">
+        <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+            <h1 class="mb-3">Our Team</h1>
+            <p>Meet the team of individuals who are responsible for making sure your kids get the best from our courses and our interactive sessions in this platform</p>
+        </div>
+        <div class="row g-4" style="padding-top: 7vh;">
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="team-item position-relative">
+                    <img class="img-fluid rounded-circle w-25" src="{% static 'img/team-1.jpg' %}" alt="">
+                    <div class="team-text">
+                        <h3>John Al</h3>
+                        <p>Designation</p>
+                        <div class="d-flex align-items-center">
+                            <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-square btn-primary  mx-1" href=""><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-square btn-primary  mx-1" href=""><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                <div class="team-item position-relative">
+                    <img class="img-fluid rounded-circle w-25" src="{% static 'img/team-2.jpg' %}" alt="">
+                    <div class="team-text">
+                        <h3>Full Name</h3>
+                        <p>Designation</p>
+                        <div class="d-flex align-items-center">
+                            <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-square btn-primary  mx-1" href=""><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-square btn-primary  mx-1" href=""><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                <div class="team-item position-relative">
+                    <img class="img-fluid rounded-circle w-25" src="{% static 'img/team-3.jpg' %}" alt="">
+                    <div class="team-text">
+                        <h3>Full Name</h3>
+                        <p>Designation</p>
+                        <div class="d-flex align-items-center">
+                            <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-square btn-primary  mx-1" href=""><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-square btn-primary  mx-1" href=""><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> {% endcomment %}
+<!-- Team End -->
+{% include 'includes/footer.html' %}
+{% endblock content %}
