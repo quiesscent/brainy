@@ -1,4 +1,4 @@
-# Braiy 
+# Brainy 
 
 Brainy is a e-learning platform that allows users to lear the new competency based curriculm. The subjects in the site are developed and crafted following the KICD Curriculum Designs for each subject.
 
