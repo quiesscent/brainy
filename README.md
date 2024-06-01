@@ -2,6 +2,7 @@
 ![Image Screenshot](image.png)
 Brainy is a e-learning platform that allows users to lear the new competency based curriculm. The subjects in the site are developed and crafted following the KICD Curriculum Designs for each subject.
 
+
 ## About
 The project allows each individual to take a test after reading through the well crafted topics under each lesson and subject and the graded.
 To make the learning competitive the site grades each user per task and evaluates the final score giving the final score and ranking them on the leaderboard with other users.
